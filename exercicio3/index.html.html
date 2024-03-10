@@ -1,0 +1,106 @@
+<!-- 3- Faça um programa para cadastrar as informações de clientes para realização de login. Apresente o seguinte menu:
+
+1 - Inserir  - Nome, e-mail, telefone, senha, confirmar senha;
+
+2 - Mostrar clientes cadastrados;
+
+3 - Login - Uma tela solicitando: usuário e senha. Verifique se as informações estão corretas dentro do banco, comparando todos os usuários e senhas. Caso esteja errado, uma mensagem avisando sobre o erro deve ser mostrada. Se o usuário e senha estiverem corretos, uma tela de boas vindas no sistema deve ser exibida.
+
+OBS: O sistema deve trabalhar com localStorage, SPA e classe. -->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <style type="text/css">
+        .invisivel{
+            display: none;
+        }
+        .visivel{
+            display: static;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        fieldset{
+           
+            border:  2px #4CAF50 solid;
+            width: 250px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        input{
+            border: 2px black solid;
+            color: black;
+        }
+        
+        .botao_menu{
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            width: 165px;
+            padding: 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .botao_interno{
+            background-color: #555555; 
+            border: none;
+            color: white;
+            width: 100px;
+            padding: 9px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="principal" class="visivel">
+		<p><button class='botao_menu' onclick="tela('cadastro')">Novo cadastro</button></p>
+
+		<p><button class='botao_menu' onclick="tela('login')">Login</button></p>
+
+		<p><button class='botao_menu' onclick="tela('mostrar')"> Usuários cadastrados</button></p>
+
+    </div>
+    <div id="cadastro" class="invisivel">
+        <fieldset>
+            <legend>Faça o seu cadastro</legend>
+            <p> <input type="text" id="nome" placeholder="Nome" required></p>  
+            <p> <input type="text" id="email" placeholder="E-mail" required></p> 
+            <p> <input type="text" id="telefone" placeholder="Telefone" required></p> 
+            <p> <input type="password" id="senha1" placeholder="Senha" required></p>   
+            <p> <input type="password" id="senha2" placeholder="Confirmar senha" required></p>  
+            <p> <button class= "botao_interno" onclick="salvar(nome.value,email.value,telefone.value,senha1.value,senha2.value)">OK</button></p>
+            <p> <button class= "botao_interno" onclick="tela('principal')">Voltar</button></p>
+        </fieldset>
+    </div>
+    <div id="login" class="invisivel">
+        <fieldset>
+            <p> <input type="text" id="usu" placeholder="Nome do usuário" required></p>
+             <p> <input type="password" id="senha" placeholder="Senha" required></p>
+            <p> <button class= "botao_interno" onclick="conferir(usu.value,senha.value)">OK</button></p>
+            <p> <button class= "botao_interno" onclick="tela('principal')">Voltar</button></p>
+        </fieldset>
+        
+    </div>
+    <div id="loginrealizado" class="invisivel">
+        <p id="textologin"></p>
+    </div>
+    <div id="mostrar">
+        <p id="textoM"></p>
+    </div>
+   
+    <script type="text/javascript" src="partejava.js"></script>
+    
+</body> 
+</html>
